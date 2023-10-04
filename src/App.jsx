@@ -28,6 +28,16 @@ setTheme("dark");
       lightTheme();
     }
   }
+const[bgVal,setBgVal]=useState("bg-[#79a8ee]");
+  const bgGrad =(e)=>{
+    const statusgrad=e.currentTarget.checked;
+   if(statusgrad){
+    setBgVal("bg-gradient-to-r from-purple-500 to-pink-500")
+   }
+   else{
+     setBgVal("bg-[#79a8ee]")
+   }
+  }
 
   const addTodo = (todo) => {
     setTodos((prev) => [{id: Date.now(), ...todo}, ...prev] )
@@ -67,11 +77,13 @@ setTheme("dark");
     
     <ThemeProvider value={{theme,darkTheme,lightTheme}}>
     <TodoProvider value={{todos, addTodo, updateTodo, deleteTodo, toggleComplete}}>
-    <div className="bg-[#79a8ee] min-h-screen py-8 dark:bg-black ">
+    <div className= {`${bgVal} min-h-screen py-8 dark:bg-black`} >
               <div className="w-full max-w-2xl mx-auto shadow-md rounded-lg px-4 py-3 text-white ">
                   <h1 className="text-2xl font-bold text-center mb-8 mt-2">Manage Your Todos</h1>
-                  <input type="checkbox" className="mb-5 "  onChange={onChangebtn} />
+                  <input type="checkbox" className="mb-5 "   onChange={onChangebtn} />
                   <label className="text-black ml-3 dark:text-white">Dark Mode</label>
+                  <input type="checkbox" className="ml-10 " onChange={bgGrad}   />
+                  <label className="text-black ml-3 dark:text-white">Bg Gradient</label>
                   <div className="mb-4">
                       {/* Todo form goes here */} 
                       <TodoForm />
