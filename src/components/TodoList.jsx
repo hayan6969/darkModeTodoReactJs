@@ -7,7 +7,7 @@ function TodoList({todo}) {
     const [isTodoEditable, setIsTodoEditable] = useState(false)
     const{deleteTodo, updateTodo, toggleComplete,todos} = useTodo();
     const edit=()=>{
-        updateTodo(todo.id,{...todo,msg:todoMsg})
+        updateTodo(todo.id,{...todo,todo:todoMsg})
     }
     const toggleCompleted=()=>{
         toggleComplete(todo.id);

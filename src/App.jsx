@@ -23,7 +23,7 @@ setTheme("dark");
     const status=e.currentTarget.checked;
     if(status){
       darkTheme();
-      
+
     }
     else{
       lightTheme();
